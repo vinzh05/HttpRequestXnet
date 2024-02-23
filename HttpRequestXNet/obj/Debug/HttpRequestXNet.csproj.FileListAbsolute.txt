@@ -1,0 +1,8 @@
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\bin\Debug\HttpRequestXNet.dll
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\bin\Debug\HttpRequestXNet.pdb
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\bin\Debug\xNet.dll
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.AssemblyReference.cache
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CoreCompileInputs.cache
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CopyComplete
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.dll
+D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.pdb

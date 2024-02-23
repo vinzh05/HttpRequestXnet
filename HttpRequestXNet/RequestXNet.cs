@@ -1,0 +1,165 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Mime;
+using xNet;
+
+namespace HttpRequestXNet
+{
+    public class RequestXNet
+    {
+        public HttpRequest request;
+
+        public RequestXNet(string cookie, string userAgent, string proxy, int typeProxy)
+        {
+            if (userAgent == "")
+            {
+                userAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1 Mobile/15E148 Safari/604.1";
+            }
+            request = new HttpRequest
+            {
+                KeepAlive = true,
+                AllowAutoRedirect = true,
+                Cookies = new CookieDictionary(),
+                UserAgent = userAgent
+            };
+            request.AddHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+            request.AddHeader("Accept-Language", "en-US,en;q=0.9");
+            if (cookie != "")
+            {
+                AddCookie(cookie);
+            }
+            if (!(proxy != ""))
+            {
+                return;
+            }
+            switch (proxy.Split(':').Count())
+            {
+                case 1:
+                    if (typeProxy == 0)
+                    {
+                        request.Proxy = HttpProxyClient.Parse("127.0.0.1:" + proxy);
+                    }
+                    else
+                    {
+                        request.Proxy = Socks5ProxyClient.Parse("127.0.0.1:" + proxy);
+                    }
+                    break;
+                case 2:
+                    if (typeProxy == 0)
+                    {
+                        request.Proxy = HttpProxyClient.Parse(proxy);
+                    }
+                    else
+                    {
+                        request.Proxy = Socks5ProxyClient.Parse(proxy);
+                    }
+                    break;
+                case 4:
+                    if (typeProxy == 0)
+                    {
+                        request.Proxy = new HttpProxyClient(proxy.Split(':')[0], Convert.ToInt32(proxy.Split(':')[1]), proxy.Split(':')[2], proxy.Split(':')[3]);
+                    }
+                    else
+                    {
+                        request.Proxy = new Socks5ProxyClient(proxy.Split(':')[0], Convert.ToInt32(proxy.Split(':')[1]), proxy.Split(':')[2], proxy.Split(':')[3]);
+                    }
+                    break;
+                case 3:
+                    break;
+            }
+        }
+
+        public string Get(string url)
+        {
+            try
+            {
+                return request.Get(url).ToString();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public byte[] GetBytes(string url)
+        {
+            return request.Get(url).ToBytes();
+        }
+
+        public string Post(string url, string data = "", string contentType = "application/x-www-form-urlencoded")
+        {
+            if (data == "" || contentType == "")
+            {
+                return request.Post(url).ToString();
+            }
+            return request.Post(url, data, contentType).ToString();
+        }
+
+        public void AddCookie(string cookie)
+        {
+            string[] array = cookie.Split(';');
+            string[] array2 = array;
+            string[] array3 = array2;
+            foreach (string text in array3)
+            {
+                string[] array4 = text.Split('=');
+                if (array4.Count() > 1)
+                {
+                    try
+                    {
+                        request.Cookies.Add(array4[0], array4[1]);
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+
+        public string GetCookie()
+        {
+            return request.Cookies.ToString();
+        }
+
+        public void AddFile(string name, string path, string format)
+        {
+            byte[] fileData = File.ReadAllBytes(path);
+            request.AddHeader("content-type", format);
+            request.AddFile(name, Path.GetFileName(path), fileData);
+        }
+
+        public string UpLoad(string url, MultipartContent data = null)
+        {
+            string result;
+            result = request.Post(url, data).ToString();
+            return result;
+        }
+
+        public void AddParam(string name, string value)
+        {
+            request.AddParam(name, value);
+        }
+
+        public void AddHeader(string name, string value)
+        {
+            request.AddHeader(name, value);
+        }
+
+        public string Address()
+        {
+            return request.Address.ToString();
+        }
+
+        public void TimeOut()
+        {
+            request.ConnectTimeout = 10000;
+        }
+
+        public void userAgent(string useragent)
+        {
+            request.UserAgent = useragent;
+        }
+    }
+}
