@@ -6,3 +6,12 @@ D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpR
 D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CopyComplete
 D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.dll
 D:\Main Information\source\repos\HttpRequestXNet\HttpRequestXNet\obj\Debug\HttpRequestXNet.pdb
+D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\HttpRequestXNet.dll
+D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\HttpRequestXNet.pdb
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.AssemblyReference.cache
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CoreCompileInputs.cache
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CopyComplete
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.dll
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.pdb
+D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\Leaf.xNet.dll
+D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\Leaf.xNet.xml

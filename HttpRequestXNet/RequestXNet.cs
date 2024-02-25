@@ -75,9 +75,14 @@ namespace HttpRequestXNet
         {
             try
             {
-                return request.Get(url).ToString();
+                return ((object)request.Get(url, (RequestParams)null)).ToString();
             }
-            catch
+            catch (ProxyException val)
+            {
+                ProxyException val2 = val;
+                return null;
+            }
+            catch (Exception)
             {
                 return null;
             }
@@ -85,16 +90,22 @@ namespace HttpRequestXNet
 
         public byte[] GetBytes(string url)
         {
-            return request.Get(url).ToBytes();
+            return request.Get(url, (RequestParams)null).ToBytes();
         }
 
         public string Post(string url, string data = "", string contentType = "application/x-www-form-urlencoded")
         {
-            if (data == "" || contentType == "")
+            string result;
+            try
             {
-                return request.Post(url).ToString();
+                result = ((!string.IsNullOrEmpty(data) && !string.IsNullOrEmpty(contentType)) ? ((object)request.Post(url, data, contentType)).ToString() : ((object)request.Post(url)).ToString());
             }
-            return request.Post(url, data, contentType).ToString();
+            catch (Exception)
+            {
+                return null;
+            }
+
+            return result;
         }
 
         public void AddCookie(string cookie)
@@ -109,7 +120,7 @@ namespace HttpRequestXNet
                 {
                     try
                     {
-                        request.Cookies.Add(array4[0], array4[1]);
+                        ((Dictionary<string, string>)(object)request.Cookies).Add(array3[0], array3[1]);
                     }
                     catch
                     {
@@ -123,23 +134,31 @@ namespace HttpRequestXNet
             return request.Cookies.ToString();
         }
 
-        public void AddFile(string name, string path, string format)
+        public string GetUrl()
         {
-            byte[] fileData = File.ReadAllBytes(path);
-            request.AddHeader("content-type", format);
-            request.AddFile(name, Path.GetFileName(path), fileData);
+            return request.Address.AbsoluteUri;
         }
 
-        public string UpLoad(string url, MultipartContent data = null)
+        public void AddFile(string name, string path, string format)
         {
-            string result;
-            result = request.Post(url, data).ToString();
-            return result;
+            request.AddFile(name, path);
+        }
+
+        public string Upload(string url, MultipartContent data = null)
+        {
+            try
+            {
+                return ((object)request.Post(url, (HttpContent)(object)data)).ToString();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public void AddParam(string name, string value)
         {
-            request.AddParam(name, value);
+            request.AddParam(name, (object)value);
         }
 
         public void AddHeader(string name, string value)
