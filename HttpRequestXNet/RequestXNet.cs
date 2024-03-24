@@ -75,7 +75,7 @@ namespace HttpRequestXNet
         {
             try
             {
-                return ((object)request.Get(url, (RequestParams)null)).ToString();
+                return request.Get(url).ToString();
             }
             catch (ProxyException val)
             {
@@ -90,7 +90,7 @@ namespace HttpRequestXNet
 
         public byte[] GetBytes(string url)
         {
-            return request.Get(url, (RequestParams)null).ToBytes();
+            return request.Get(url).ToBytes();
         }
 
         public string Post(string url, string data = "", string contentType = "application/x-www-form-urlencoded")
@@ -120,7 +120,7 @@ namespace HttpRequestXNet
                 {
                     try
                     {
-                        ((Dictionary<string, string>)(object)request.Cookies).Add(array3[0], array3[1]);
+                        request.Cookies.Add(array4[0], array4[1]);
                     }
                     catch
                     {
@@ -148,7 +148,7 @@ namespace HttpRequestXNet
         {
             try
             {
-                return ((object)request.Post(url, (HttpContent)(object)data)).ToString();
+                return (request.Post(url, (HttpContent)(object)data)).ToString();
             }
             catch (Exception)
             {
@@ -158,12 +158,17 @@ namespace HttpRequestXNet
 
         public void AddParam(string name, string value)
         {
-            request.AddParam(name, (object)value);
+            request.AddParam(name, value);
         }
 
         public void AddHeader(string name, string value)
         {
             request.AddHeader(name, value);
+        }
+
+        public void Authorization(string Authorization)
+        {
+            request.Authorization = Authorization;
         }
 
         public string Address()
@@ -179,6 +184,11 @@ namespace HttpRequestXNet
         public void userAgent(string useragent)
         {
             request.UserAgent = useragent;
+        }
+
+        public void ClearCookie()
+        {
+            request.Cookies.Clear();
         }
     }
 
