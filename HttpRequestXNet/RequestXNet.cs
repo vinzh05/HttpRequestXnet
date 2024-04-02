@@ -190,6 +190,16 @@ namespace HttpRequestXNet
         {
             request.Cookies.Clear();
         }
+
+        public void ClearHeader()
+        {
+            request.ClearAllHeaders();
+        }
+
+        public void Dispose()
+        {
+            request.Dispose();
+        }
     }
 
 }
