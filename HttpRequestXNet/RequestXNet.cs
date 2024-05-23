@@ -161,9 +161,25 @@ namespace HttpRequestXNet
             request.AddParam(name, value);
         }
 
+        public void AddParam(Dictionary<string, string> dictionary)
+        {
+            foreach (var item in dictionary)
+            {
+                request.AddParam(item.Key, item.Value);
+            }
+        }
+
         public void AddHeader(string name, string value)
         {
             request.AddHeader(name, value);
+        }
+
+        public void AddHeader(Dictionary<string, string> dictionary)
+        {
+            foreach (var item in dictionary)
+            {
+                request.AddParam(item.Key, item.Value);
+            }
         }
 
         public void Authorization(string Authorization)
