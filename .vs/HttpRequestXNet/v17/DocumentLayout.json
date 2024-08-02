@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github\\HttpRequestXnet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92415340-2C5D-480A-A448-045D2B1E8F2E}|HttpRequestXNet\\HttpRequestXNet.csproj|d:\\github\\httprequestxnet\\httprequestxnet\\requestxnet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92415340-2C5D-480A-A448-045D2B1E8F2E}|HttpRequestXNet\\HttpRequestXNet.csproj|solutionrelative:httprequestxnet\\requestxnet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RequestXNet.cs",
+              "DocumentMoniker": "D:\\Github\\HttpRequestXnet\\HttpRequestXNet\\RequestXNet.cs",
+              "RelativeDocumentMoniker": "HttpRequestXNet\\RequestXNet.cs",
+              "ToolTip": "D:\\Github\\HttpRequestXnet\\HttpRequestXNet\\RequestXNet.cs",
+              "RelativeToolTip": "HttpRequestXNet\\RequestXNet.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAIwF8AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-25T10:21:43.909Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

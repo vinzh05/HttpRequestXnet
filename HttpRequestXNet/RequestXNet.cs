@@ -22,7 +22,8 @@ namespace HttpRequestXNet
                 KeepAlive = true,
                 AllowAutoRedirect = true,
                 Cookies = new CookieDictionary(),
-                UserAgent = userAgent
+                UserAgent = userAgent,
+                ConnectTimeout = 10
             };
             request.AddHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
             request.AddHeader("Accept-Language", "en-US,en;q=0.9");
@@ -77,12 +78,7 @@ namespace HttpRequestXNet
             {
                 return request.Get(url).ToString();
             }
-            catch (ProxyException val)
-            {
-                ProxyException val2 = val;
-                return null;
-            }
-            catch (Exception)
+            catch
             {
                 return null;
             }
@@ -95,17 +91,15 @@ namespace HttpRequestXNet
 
         public string Post(string url, string data = "", string contentType = "application/x-www-form-urlencoded")
         {
-            string result;
             try
             {
-                result = ((!string.IsNullOrEmpty(data) && !string.IsNullOrEmpty(contentType)) ? ((object)request.Post(url, data, contentType)).ToString() : ((object)request.Post(url)).ToString());
+                return ((!string.IsNullOrEmpty(data) && !string.IsNullOrEmpty(contentType)) ? ((object)request.Post(url, data, contentType)).ToString() : ((object)request.Post(url)).ToString());
             }
             catch (Exception)
             {
+
                 return null;
             }
-
-            return result;
         }
 
         public void AddCookie(string cookie)

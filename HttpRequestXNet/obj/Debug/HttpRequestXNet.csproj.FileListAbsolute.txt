@@ -10,8 +10,8 @@ D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\HttpRequestXNet.dll
 D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\HttpRequestXNet.pdb
 D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.AssemblyReference.cache
 D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CoreCompileInputs.cache
-D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.csproj.CopyComplete
 D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.dll
 D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequestXNet.pdb
 D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\Leaf.xNet.dll
 D:\Github\HttpRequestXnet\HttpRequestXNet\bin\Debug\Leaf.xNet.xml
+D:\Github\HttpRequestXnet\HttpRequestXNet\obj\Debug\HttpRequ.F8CEE708.Up2Date
